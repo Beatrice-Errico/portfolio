@@ -64,14 +64,15 @@ function App() {
               </div>
             </div>
 
-            {/* CARD STILE APP */}
+            {/* CARD STILE APP – SCHEDA IDENTITÀ */}
             <div className="flex-1 flex justify-center">
               <div
-                className="w-[260px] md:w-[290px] h-[520px] rounded-[40px] bg-white
+                className="w-[260px] md:w-[300px] h-[520px] rounded-[40px] bg-white
                            shadow-[0_18px_45px_rgba(0,0,0,0.08)] border border-rose-100
                            p-5 flex flex-col justify-between"
               >
                 <div className="space-y-4">
+                  {/* HEADER */}
                   <div className="flex items-center gap-3">
                     <div
                       className="w-10 h-10 rounded-full bg-gradient-to-br from-[#FF8A3C]
@@ -82,28 +83,70 @@ function App() {
                       <p className="text-sm font-semibold">Beatrice Errico</p>
                     </div>
                   </div>
-                  <p className="text-sm font-medium text-[#241824]">
-                    Front-End & Full-Stack Web Developer
-                  </p>
-                  <p className="text-xs leading-relaxed text-[#8B6F8F]">
-                    React, Next.js, Laravel, Supabase. Progetti: gestionale centro
-                    estetico, portale news, portale gaming, planner.
-                  </p>
+
+                  {/* RUOLO */}
+                  <div className="space-y-1">
+                    <p className="text-xs uppercase tracking-wide text-rose-400">
+                      Ruolo
+                    </p>
+                    <p className="text-sm font-medium text-[#241824]">
+                      Junior Front-End / Full-Stack Web Developer
+                    </p>
+                  </div>
+
+                  {/* INFO RAPIDE */}
+                  <div className="space-y-3 text-xs text-[#8B6F8F] pt-1">
+                    <div className="flex justify-between">
+                      <span>Base</span>
+                      <span>Torino</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span>Disponibilità</span>
+                      <span>Full-time · Ibrido/Remote</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span>Focus</span>
+                      <span>React · Next.js · Laravel</span>
+                    </div>
+                  </div>
+
+                  {/* STACK PRINCIPALE */}
+                  <div className="space-y-2 pt-2">
+                    <p className="text-xs uppercase tracking-wide text-rose-400">
+                      Stack principale
+                    </p>
+                    <div className="flex flex-wrap gap-1.5">
+                      {["React", "Next.js", "Laravel", "Supabase", "Tailwind"].map(
+                        (tech) => (
+                          <span
+                            key={tech}
+                            className="text-[11px] font-medium px-2 py-1 rounded-full border border-rose-100
+                                       bg-rose-50/70 text-[#8B6F8F]"
+                          >
+                            {tech}
+                          </span>
+                        )
+                      )}
+                    </div>
+                  </div>
                 </div>
 
+                {/* CTA */}
                 <div className="space-y-3">
-                  <button
+                  <a
+                    href="#projects"
                     className="w-full inline-flex items-center justify-center rounded-full text-xs font-medium text-white
                                bg-gradient-to-r from-[#FF8A3C] to-[#FF2F7D] py-2.5"
                   >
-                    Esplora i progetti
-                  </button>
-                  <button
+                    Guarda i progetti
+                  </a>
+                  <a
+                    href="#contact"
                     className="w-full inline-flex items-center justify-center rounded-full text-xs font-medium
                                bg-rose-50 text-[#241824] py-2 border border-rose-100"
                   >
-                    Vedi il codice su GitHub
-                  </button>
+                    Contattami
+                  </a>
                 </div>
               </div>
             </div>
@@ -197,10 +240,10 @@ function App() {
             <li>
               Email:{" "}
               <a
-                href="mailto:1.beatriceerrico@gmail.com"
+                href="mailto:la_tua_email@example.com"
                 className="underline underline-offset-4"
               >
-                1.beatriceerrico@gmail.com
+                la_tua_email@example.com
               </a>
             </li>
             <li>
