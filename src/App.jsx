@@ -4,6 +4,9 @@ import { projects } from "./data/projects";
 import { ProjectCard } from "./components/ProjectCard";
 
 function App() {
+  // prendo il progetto Centro Estetico dai dati
+  const featured = projects.find((p) => p.id === "centro-estetico");
+
   return (
     <div className="min-h-screen bg-[radial-gradient(circle_at_top,_#ffe3f2,_#fff5fa)] text-[#241824]">
       {/* NAVBAR */}
@@ -33,19 +36,24 @@ function App() {
         {/* HERO */}
         <section id="hero" className="py-6 md:py-10">
           <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-10">
-            {/* TESTO */}
+            {/* TESTO IDENTITÀ */}
             <div className="flex-1 space-y-4">
               <p className="text-sm font-medium text-rose-500">
-                Junior Full-Stack / Front-End Developer
+                Junior Front-End / Full-Stack Developer
               </p>
               <h1 className="text-3xl md:text-4xl font-semibold tracking-tight">
                 Ciao, sono Beatrice Errico.
               </h1>
               <p className="text-base md:text-lg leading-relaxed text-[#6b546c] max-w-xl">
-                Sviluppo applicazioni web moderne con React, Next.js, Laravel e
-                Supabase. Mi concentro su interfacce pulite, flussi chiari e
-                soluzioni che abbiano senso per chi deve usarle davvero.
+                Sviluppo applicazioni web full-stack con React, Next.js, Laravel e
+                Supabase. Il mio focus è costruire interfacce chiare e flussi di
+                utilizzo che abbiano senso per le persone che li usano davvero.
               </p>
+              <ul className="text-sm text-[#6b546c] space-y-1">
+                <li>• Gestionale full-stack per centro estetico</li>
+                <li>• Portale news in Laravel stile testata</li>
+                <li>• Portale gaming in React + API esterne</li>
+              </ul>
               <div className="flex flex-wrap gap-3 pt-2">
                 <a
                   href="#projects"
@@ -55,99 +63,106 @@ function App() {
                   Guarda i progetti
                 </a>
                 <a
-                  href="/cv.pdf" // togli o sostituisci se non lo usi
+                  href="#contact"
                   className="inline-flex items-center px-5 py-2.5 rounded-full text-sm font-medium
                              border border-rose-200 bg-white/70 text-[#241824] hover:bg-white"
                 >
-                  Scarica il CV
+                  Contattami
                 </a>
               </div>
             </div>
 
-            {/* CARD STILE APP – SCHEDA IDENTITÀ */}
+            {/* CARD: PROGETTO IN EVIDENZA */}
             <div className="flex-1 flex justify-center">
               <div
                 className="w-[260px] md:w-[300px] h-[520px] rounded-[40px] bg-white
                            shadow-[0_18px_45px_rgba(0,0,0,0.08)] border border-rose-100
                            p-5 flex flex-col justify-between"
               >
-                <div className="space-y-4">
-                  {/* HEADER */}
-                  <div className="flex items-center gap-3">
-                    <div
-                      className="w-10 h-10 rounded-full bg-gradient-to-br from-[#FF8A3C]
-                                 to-[#FF2F7D]"
-                    />
-                    <div>
-                      <p className="text-xs text-rose-400 font-medium">Portfolio</p>
-                      <p className="text-sm font-semibold">Beatrice Errico</p>
-                    </div>
-                  </div>
+                {featured && (
+                  <>
+                    <div className="space-y-4">
+                      {/* TAG + TITOLO */}
+                      <div className="space-y-1">
+                        <p className="text-xs uppercase tracking-wide text-rose-400">
+                          Progetto in evidenza
+                        </p>
+                        <p className="text-sm font-semibold text-[#241824]">
+                          {featured.title}
+                        </p>
+                        <p className="text-xs text-[#8B6F8F]">
+                          {featured.subtitle}
+                        </p>
+                      </div>
 
-                  {/* RUOLO */}
-                  <div className="space-y-1">
-                    <p className="text-xs uppercase tracking-wide text-rose-400">
-                      Ruolo
-                    </p>
-                    <p className="text-sm font-medium text-[#241824]">
-                      Junior Front-End / Full-Stack Web Developer
-                    </p>
-                  </div>
+                      {/* FAKE SCREEN / HEADER COLORATO */}
+                      <div
+                        className="mt-3 h-32 rounded-3xl bg-gradient-to-br from-[#FF8A3C]
+                                   via-[#FFB1A8] to-[#FF2F7D] flex items-end p-4"
+                      >
+                        <div className="space-y-1 text-xs text-white">
+                          <p className="font-semibold">
+                            Gestionale Centro Estetico
+                          </p>
+                          <p className="text-[11px] opacity-90">
+                            Booking online, agenda admin, listino trattamenti.
+                          </p>
+                        </div>
+                      </div>
 
-                  {/* INFO RAPIDE */}
-                  <div className="space-y-3 text-xs text-[#8B6F8F] pt-1">
-                    <div className="flex justify-between">
-                      <span>Base</span>
-                      <span>Torino</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span>Disponibilità</span>
-                      <span>Full-time · Ibrido/Remote</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span>Focus</span>
-                      <span>React · Next.js · Laravel</span>
-                    </div>
-                  </div>
+                      {/* TESTO BREVE */}
+                      <p className="text-xs leading-relaxed text-[#6b546c] pt-1">
+                        Piattaforma gestionale full-stack per un centro estetico:
+                        prenotazioni, agenda staff e gestione servizi, sviluppata
+                        con Next.js (App Router), Supabase e Tailwind.
+                      </p>
 
-                  {/* STACK PRINCIPALE */}
-                  <div className="space-y-2 pt-2">
-                    <p className="text-xs uppercase tracking-wide text-rose-400">
-                      Stack principale
-                    </p>
-                    <div className="flex flex-wrap gap-1.5">
-                      {["React", "Next.js", "Laravel", "Supabase", "Tailwind"].map(
-                        (tech) => (
-                          <span
-                            key={tech}
-                            className="text-[11px] font-medium px-2 py-1 rounded-full border border-rose-100
-                                       bg-rose-50/70 text-[#8B6F8F]"
-                          >
-                            {tech}
-                          </span>
-                        )
+                      {/* STACK */}
+                      <div className="space-y-2">
+                        <p className="text-xs uppercase tracking-wide text-rose-400">
+                          Stack
+                        </p>
+                        <div className="flex flex-wrap gap-1.5">
+                          {featured.techStack.slice(0, 4).map((tech) => (
+                            <span
+                              key={tech}
+                              className="text-[11px] font-medium px-2 py-1 rounded-full border border-rose-100
+                                         bg-rose-50/70 text-[#8B6F8F]"
+                            >
+                              {tech}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* CTA PROGETTO */}
+                    <div className="space-y-3">
+                      {featured.liveUrl && (
+                        <a
+                          href={featured.liveUrl}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="w-full inline-flex items-center justify-center rounded-full text-xs font-medium text-white
+                                     bg-gradient-to-r from-[#FF8A3C] to-[#FF2F7D] py-2.5"
+                        >
+                          Apri la demo
+                        </a>
+                      )}
+                      {featured.codeUrl && (
+                        <a
+                          href={featured.codeUrl}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="w-full inline-flex items-center justify-center rounded-full text-xs font-medium
+                                     bg-rose-50 text-[#241824] py-2 border border-rose-100"
+                        >
+                          Vedi il codice su GitHub
+                        </a>
                       )}
                     </div>
-                  </div>
-                </div>
-
-                {/* CTA */}
-                <div className="space-y-3">
-                  <a
-                    href="#projects"
-                    className="w-full inline-flex items-center justify-center rounded-full text-xs font-medium text-white
-                               bg-gradient-to-r from-[#FF8A3C] to-[#FF2F7D] py-2.5"
-                  >
-                    Guarda i progetti
-                  </a>
-                  <a
-                    href="#contact"
-                    className="w-full inline-flex items-center justify-center rounded-full text-xs font-medium
-                               bg-rose-50 text-[#241824] py-2 border border-rose-100"
-                  >
-                    Contattami
-                  </a>
-                </div>
+                  </>
+                )}
               </div>
             </div>
           </div>
@@ -243,7 +258,7 @@ function App() {
                 href="mailto:la_tua_email@example.com"
                 className="underline underline-offset-4"
               >
-                la_tua_email@example.com
+                1.beatriceerrico@gmail.com
               </a>
             </li>
             <li>
