@@ -33,7 +33,7 @@ export const projects = [
       "Pagine di dettaglio con informazioni sul singolo gioco.",
       "Componenti riutilizzabili e gestione stato con hook React.",
     ],
-    liveUrl: "https://game-zone-errico.vercel.app/", 
+    liveUrl:"https://game-zone-errico.vercel.app/",
     codeUrl: "https://github.com/Beatrice-Errico/GameZone",
   },
   {
