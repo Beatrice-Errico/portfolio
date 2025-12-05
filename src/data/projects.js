@@ -48,7 +48,7 @@ export const projects = [
       "CRUD completo per articoli e categorie.",
       "Pannello admin basato su pattern MVC.",
     ],
-    liveUrl: "https://...", 
+    liveUrl: "https://horizon-media.onrender.com/", 
     codeUrl: "https://github.com/Beatrice-Errico/Horizon_Media_",
   },
   {
